@@ -2,7 +2,6 @@ package com.br.edu.utfpr.agroapi1.controllers;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,7 +18,6 @@ import com.br.edu.utfpr.agroapi1.repositories.AreaRepository;
 @RequestMapping("/area")
 public class AreaController {
     
-    @Autowired
     private AreaRepository repository;
 
 // Metodos

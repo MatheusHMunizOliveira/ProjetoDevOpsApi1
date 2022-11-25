@@ -7,6 +7,7 @@ import com.br.edu.utfpr.agroapi1.repositories.PessoaRepository;
 
 //import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,9 +22,11 @@ public class PessoaController {
 
     //@Autowired
     private PessoaRepository repository;
+    private PasswordEncoder encoder;
 
-    public PessoaController(PessoaRepository repository) {
+    public PessoaController(PessoaRepository repository, PasswordEncoder encoder) {
         this.repository = repository;
+        this.encoder = encoder;
     }
 
     // Metodos
@@ -38,6 +41,7 @@ public class PessoaController {
     // Save
     @PostMapping("/salvar")
     public ResponseEntity<Pessoa> salvar(@RequestBody Pessoa pessoa) {
+        pessoa.setSenha(encoder.encode(pessoa.getSenha()));
         return ResponseEntity.ok(repository.save(pessoa));
     }
 
