@@ -15,8 +15,10 @@ public class Pessoa {
     private String nome;
     @Column(nullable = false)
     private String telefone;
-    @Column(nullable = false)
+    @Column(unique = true, nullable = false)
     private String email;
+
+    private String senha;
 
     public Long getId() {
         return id;
@@ -42,4 +44,12 @@ public class Pessoa {
     public void setEmail(String email) {
         this.email = email;
     }
+    public String getSenha() {
+        return senha;
+    }
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    
 }

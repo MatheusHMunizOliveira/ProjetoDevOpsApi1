@@ -5,7 +5,8 @@ import java.util.List;
 import com.br.edu.utfpr.agroapi1.model.Pessoa;
 import com.br.edu.utfpr.agroapi1.repositories.PessoaRepository;
 
-import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,26 +15,30 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
 @RestController
 @RequestMapping("/pessoa")
 public class PessoaController {
 
-    @Autowired
+    //@Autowired
     private PessoaRepository repository;
+
+    public PessoaController(PessoaRepository repository) {
+        this.repository = repository;
+    }
 
     // Metodos
 
     // getAll
-    @GetMapping
-    public List<Pessoa> listar() {
-        return repository.findAll();
+    @GetMapping("/listarTodos")
+    public ResponseEntity<List<Pessoa>> listar() {
+
+        return ResponseEntity.ok(repository.findAll());
     }
 
     // Save
-    @PostMapping
-    public void salvar(@RequestBody Pessoa pessoa) {
-        repository.save(pessoa);
+    @PostMapping("/salvar")
+    public ResponseEntity<Pessoa> salvar(@RequestBody Pessoa pessoa) {
+        return ResponseEntity.ok(repository.save(pessoa));
     }
 
     // update
