@@ -19,8 +19,10 @@ public class Area {
     private String tipoPropriedade;
     @Column(nullable = false)
     private String endereco;
-
-    // private List<Ponto> poligonoArea;
+    @Column(nullable = false)
+    private Long idProprietario;
+    private String cordenadaX;
+    private String cordenadaY;
     
     public Long getId() {
         return id;
@@ -46,10 +48,23 @@ public class Area {
     public void setEndereco(String endereco) {
         this.endereco = endereco;
     }
-    // public List<Ponto> getPoligonoArea() {
-    //     return poligonoArea;
-    // }
-    // public void setPoligonoArea(List<Ponto> poligonoArea) {
-    //     this.poligonoArea = poligonoArea;
-    // }
+    public String getCordenadaX() {
+        return cordenadaX;
+    }
+    public void setCordenadaX(String cordenadaX) {
+        this.cordenadaX = cordenadaX;
+    }
+    public String getCordenadaY() {
+        return cordenadaY;
+    }
+    public void setCordenadaY(String cordenadaY) {
+        this.cordenadaY = cordenadaY;
+    }
+    public Long getIdProprietario() {
+        return idProprietario;
+    }
+    public void setIdProprietario(Long idProprietario) {
+        this.idProprietario = idProprietario;
+    }
+    
 }

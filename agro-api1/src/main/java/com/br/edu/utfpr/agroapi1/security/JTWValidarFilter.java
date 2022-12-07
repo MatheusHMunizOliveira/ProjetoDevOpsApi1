@@ -19,7 +19,7 @@ import com.auth0.jwt.algorithms.Algorithm;
 public class JTWValidarFilter  extends BasicAuthenticationFilter{
 
     public static final String HEADER_ATRIBUTO = "Authorization";
-    public static final String ATRIBUTO_PREFIXO = "Bearer";
+    public static final String ATRIBUTO_PREFIXO = "Bearer ";
     
 
     public JTWValidarFilter(AuthenticationManager authenticationManager) {
@@ -45,7 +45,7 @@ public class JTWValidarFilter  extends BasicAuthenticationFilter{
             return;
         }
 
-        String token = atributo.replace(ATRIBUTO_PREFIXO + " ", "");
+        String token = atributo.replace(ATRIBUTO_PREFIXO, "");
         UsernamePasswordAuthenticationToken authenticationToken = getAuthenticationToken(token);
 
         SecurityContextHolder.getContext().setAuthentication(authenticationToken);
