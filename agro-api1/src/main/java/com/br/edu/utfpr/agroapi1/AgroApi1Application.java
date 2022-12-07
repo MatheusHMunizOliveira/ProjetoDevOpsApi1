@@ -8,10 +8,11 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @ComponentScan
-@SpringBootApplication(exclude = {
-	org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration.class,
-	org.springframework.boot.actuate.autoconfigure.security.servlet.ManagementWebSecurityAutoConfiguration.class}
-	)
+@SpringBootApplication
+// (exclude = {
+// 	org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration.class,
+// 	org.springframework.boot.actuate.autoconfigure.security.servlet.ManagementWebSecurityAutoConfiguration.class}
+// 	)
 public class AgroApi1Application {
 
 	public static void main(String[] args) {
